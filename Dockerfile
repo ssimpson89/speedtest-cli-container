@@ -4,6 +4,7 @@ RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/scr
 
 RUN yum -y install speedtest
 
-RUN echo alias speedtest=\'speedtest --accept-license\' >> ~/.bashrc
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-CMD ["speedtest", "--accept-license"]
+ENTRYPOINT ["/entrypoint.sh"]
