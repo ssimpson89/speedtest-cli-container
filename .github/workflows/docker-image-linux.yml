@@ -1,7 +1,7 @@
 name: Create and publish a Docker image for Linux
 on:
-  release:
-    types: ["published"]
+  - push
+  - workflow_dispatch
 env:
   REGISTRY: ghcr.io
   GITHUBUSER: ${{ github.repository_owner }}
@@ -38,4 +38,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.REGISTRY }}/${{ env.GITHUBUSER }}/${{ env.IMAGE_NAME }}:latest
-            ${{ env.REGISTRY }}/${{ env.GITHUBUSER }}${{ env.IMAGE_NAME }}:${{ github.ref_name }}
