@@ -6,4 +6,4 @@ RUN yum -y install speedtest
 
 RUN echo alias speedtest=\'speedtest --accept-license\' >> ~/.bashrc
 
-CMD ["speedtest"]
+CMD ["speedtest", "--accept-license"]
