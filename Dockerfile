@@ -2,6 +2,8 @@ FROM alpine:latest
 
 RUN apk add --no-cache wget ca-certificates tar
 
+ARG TARGETARCH
+
 RUN if [ "$TARGETARCH" = "amd64" ]; then \
     ARCH="x86_64"; \
     elif [ "$TARGETARCH" = "arm64" ]; then \
